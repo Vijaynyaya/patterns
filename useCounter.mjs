@@ -1,15 +1,14 @@
 import singletonCounter from "./counter.mjs";
 
-console.log('initial value of the counter is', singletonCounter.getCount())
+console.log('instance of the singletong', singletonCounter.getInstance(), '\n\tNotice the empty object')
+console.log('get private property', singletonCounter.getPrivateProp())
 
-console.log('incrementing counter by 5')
-for (let i = 0; i < 5; i++) {
-  singletonCounter.increment()
-}
-console.log(singletonCounter.getCount())
+//console.log("Accessing private properties directly throws an error", singletonCounter.#prop)
+/**
+*console.log("Accessing private properties directly throws an error", singletonCounter.#prop)
+*                                                                                    ^
+*SyntaxError: Private field '#prop' must be declared in an enclosing class
+*/
 
-console.log('decrementing counter by 4')
-for (let i = 0; i < 4; i++) {
-  singletonCounter.decrement()
-}
-console.log(singletonCounter.getCount())
+let prop = '#prop';
+console.log('accessing private properties through [] notation does not throw any error', singletonCounter[prop], '\n\t Notice it returned undefined')

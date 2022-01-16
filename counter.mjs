@@ -1,10 +1,16 @@
 let count = 0;
 
 class Counter {
-  getCount() {
-    return count
+  #prop = 'loki';
+  getPrivateProp() {
+    return this.#prop;
   }
-
+  getInstance() {
+    return this;
+  }
+  getCount() {
+    return count;
+  }
   increment() {
     return ++count;
   }
